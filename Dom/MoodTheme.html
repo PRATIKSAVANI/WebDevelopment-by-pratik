@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .day{
+           background-color: #f5f5f5;
+           color: #333;
+        }
+
+        .night{
+            background-color: #121212;
+            color: #fff;
+        }
+
+        .party{
+           background: linear-gradient(45deg , red , yellow, blue);
+           color: #fff;
+        }
+
+        button{
+            margin: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body id="body">
+    
+<h1 id="title">Welcome 😎</h1>
+
+<div class="button">
+    <button  onclick="setTheme('day')">Day☀️</button>
+    <button onclick="setTheme('night')">Night🌙</button>
+    <button onclick="setTheme('party')">Party🎉</button>
+</div>
+
+<script>
+
+function setTheme(theme){
+   //Change The Theme of Webpage
+
+const body = document.getElementById("body")
+
+const title = document.getElementById("title")
+
+//Remove All Theme
+    body.className = "";
+
+
+    body.classList.add(theme)
+
+    if(theme === "day"){
+        title.innerText = "Good Morning "
+    }else if(theme === "night"){
+        title.innerText = "Good Night"
+    }else{
+        title.innerText = "Party Time"
+    }
+
+
+}
+     // Extra buildup learning. 
+function autoTheme(){
+
+    const hour = new Date().getHours()
+    const day = new Date().getDay()  //Sunday = 0 , 
+
+    //Weekend - Friday - Party
+    if(day === 5 && hour >=20){
+        setTheme('party')
+    }
+
+    //Day Time
+    else if(hour >=6 && hour <18){
+        setTheme('day')
+    }
+
+    else{
+        setTheme('night')
+    }
+}
+autoTheme()
+
+
+//Optional  update every Min
+setInterval(autoTheme , 60000)
+
+
+
+</script>
+
+</body>
+</html>

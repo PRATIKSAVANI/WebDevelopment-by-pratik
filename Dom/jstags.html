@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="abc">Hello Java Script</h2>
+
+    <h2>HELLO GUYS</h2>
+
+    <h2> hello this is index no 2</h2>
+
+    <div class="myclass">this is div - 0</div>
+    <div class="myclass">this is div - 1</div>
+
+    <div class"hello">this is div </div>
+    
+    <div class="box"> hello</div>
+    <div class="box"> how are you ?</div>
+    <script>
+        // Task : Select Html Tag(Element) in js.
+
+        //1. getElementById("Element ID Name") : It Select The Html Tag which has id in js.
+        //document - webpage
+
+        const ele = document.getElementById("abc");
+        console.log(ele);
+
+        //2. getElementsByClassName("Element Class Name").
+
+        const ele1 = document.getElementsByClassName("myclass");
+        console.log(ele1);
+        console.log(ele1[1]);
+
+        //3. Tag Name
+
+        const ele2 = document.getElementsByTagName("h2");
+        console.log(ele2);
+        console.log(ele2[2]);
+
+        //4. Query Selector - it follow the css selector - #idname , .classname , tagname.
+          // it only select single HTML Tasg/Element - First One.
+        const xyz= document.querySelector(".box");
+        console.log(xyz);
+
+        //5. QuerySelectorAll
+
+        // QuerySelectorall - Multiple Tag.
+        const abc = document.querySelectorAll(".box");
+        console.log(abc); 
+    </script>
+</body>
+</html> 
