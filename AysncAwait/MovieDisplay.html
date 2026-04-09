@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Task - To Get The Movie Details- MovieName
+
+         async  function getMovie(movieName){
+
+               let url = ` http://www.omdbapi.com/?t=${movieName}&apikey=a6606658`
+
+               try{
+                 //Logic
+
+                    let response  =    await   fetch(url)
+                    let data      =    await    response.json()
+                    console.log(data)
+                    console.log(data.Title)
+                    console.log(data.Year)
+
+
+               }catch(error){
+                 console.log("Error Fetching Movie ", error)
+               }               
+
+           }
+           getMovie("interstellar")
+           
+
+           function add(){
+            console.log(2+2);
+           }
+           add()
+    </script>
+</body>
+</html>

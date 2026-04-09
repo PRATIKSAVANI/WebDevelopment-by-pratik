@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="myButton">Add To Cart</button>
+
+    <p id="msg"></p>
+
+    <script>
+      //1. Select The Element/Tag
+
+     const button = document.getElementById("myButton")
+     const message = document.getElementById("msg")
+
+
+     //2. use AddEventLisnter('Type of Event/Action' , function-Task)
+         
+     button.addEventListener('dblclick' , function(){
+       message.textContent = "Product Added To Cart"
+
+     })
+
+
+    </script>
+</body>
+</html> 

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-self: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg , #0f2027, #203a43);
+            font-family:'Inter' , sans-serif;
+            color: white;
+        }
+
+        .clock{
+            text-align: center;
+            background: rgba(225, 225, 225, 0.1);
+            padding: 30px 50px;
+            border-radius: 15px;
+            box-shadow: 0 0  15px white;
+        }
+
+        #time{
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        #date{
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+      <div id="time">00:00:00 AM</div>
+      <div id="date">Monday , 1 January 2026</div>
+    </div>
+
+    <script>
+        //Function - Task to Shows current time and date
+        function showClock(){
+
+        //Date Object - 
+        // time
+        let now  =   new Date()
+
+        let hours = now.getHours()  //current hours in 24 hr format
+        let mintues = now.getMinutes()  //current min in 24 hr forma
+        let second = now.getSeconds()  
+
+        //Check AM or Pm
+        let ampm = hours >=12 ? "PM":"AM"
+
+        //Conversion 24 hr into 12 hr
+        if(hours > 12){
+            hours = hours - 12
+        }
+
+        if(hours == 0){
+            hours=12
+        }
+
+        //Logic for Min and seconds
+        if(mintues < 10){
+            mintues = '0' + mintues
+        }
+
+        if(second < 10){
+            second = '0' + second
+        }
+
+        //Connection js between and HTml
+        //Element = Tag
+        document.getElementById('time').innerHTML = hours + ':' + mintues + ':' + second + '' + ampm  //pending
+
+
+
+        //Phase 2 - Day , date , month year
+        let day = now.getDay()  //Monday Starts with 1
+        let date = now.getDate()
+        let month = now.getMonth()   //Jan - starts  0
+        let year = now.getFullYear()
+
+       
+
+        document.getElementById("date").innerHTML = date + " " + year
+
+
+        }
+
+        //Keep running function in 1sec - (1000) seconds
+        setInterval(showClock, 1000)   //Pending
+
+        showClock()
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Data Type in javaScript 
+
+        // 1. string - text "text" or 'string' - sequence of character
+
+        var username = "john"
+        var password = '12345'
+
+        console.log(typeof(username))
+        console.log(typeof(password))
+
+        //2. Number - +ve , -ve , Decimal Number 
+
+        var age = 12
+        var temp = 14
+        var xyz = 85
+        console.log(typeof(age))
+        console.log(typeof(temp))
+        console.log(typeof(xyz))
+
+        //3. boolean - true OR fale
+
+        var isloggedin = false 
+        var isverfied = true
+
+        console.log(typeof(isverfied))
+
+        //4. undefined value not assigned
+
+        var deliveryfee 
+
+        console.log(typeof(deliveryfee))
+
+        //5. NULL - 
+
+        var abc = null    // in js Null is an object Data Type.
+
+        console.log(typeof(abc))
+
+        //6. Big Int - 123456789 - notation an at the last of number 
+
+        var distanceofearthandmoon = 123456789n
+
+        console.log(typeof(distanceofearthandmoon))
+
+        //ARRAY - to store multiple data at the same time of different data types as well.
+        //symbol - [ ] sqaure brecket.
+        // RULE : INDEX no starts with 0.
+
+        var fruits = [ "mango" , "fruits" , "banana" , 251 , true , "watermelon" , "lemon" ]  // array in data type of string , number , boolean.
+        console.log(fruits)
+
+        // access tha data 
+        console.log(fruits[2])
+        console.log(fruits[-1])
+
+        // LENGTH = total number of data in array 
+        console.log(fruits.length)
+
+        // console.log(fruits[-1]) - is doesn't support negtive indexing.
+
+        //Collection Of Data  - Object - symbol { } curly bracket
+        // format Key:Value Pair 
+
+        var Employee = {
+            //Key:Value 
+            name: "john" ,
+            empId: "123" , 
+            department: "CE" ,
+            email: "john@gmail.com"
+        }
+
+        console.log(Employee)
+
+        //Access The Data - ObejctName.KeyName.
+
+        console.log(Employee.empId)
+        console.log(Employee.department)
+
+        //Function -  To Do A Specific Task
+        //synatx : function(keyword) fucntionName() {      }
+
+        function Addition(){
+            //Body of function - Instruction to perform task
+            var num1 = 10
+            var num2 = 15
+
+            var sum = num1 + num2 
+
+            console.log("the addition is" , sum)
+        } 
+
+        Addition()  // calling the function - to perform the task.
+
+
+
+    </script>
+</body>
+</html>

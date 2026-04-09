@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //Draw a Dice - 1 to 6 Numbers Random oreder - Lucky No
+        //Get Input From User - Guess Number 
+        //Compare - Guess No and Lucky - winning - pop up msg and Better Luck Next Time.
+        //Twist - Use a Loop
+
+        // Math Object - Random number Between 1 to 6 
+
+        let luckyno = Math.floor(Math.random() * 6) + 1 // This is to generate Lucy No From 1 to 6.
+
+        while (true) {
+            guess = prompt("Enter number from 1 to 6")
+
+            if (luckyno == guess) {
+                alert('you won')
+                break;
+            } else {
+                alert('Better Luck Next Time')
+            }
+
+        }
+    </script>
+</body>
+
+</html>

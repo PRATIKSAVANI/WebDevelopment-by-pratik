@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        p{
+            font-size: 24px;
+        }
+
+        .piano{
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .key{
+            width: 60px;
+            height: 200px;
+            background-color: white;
+            margin: 2px;
+            border: 1px solid black;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .key:active{
+            background-color: #add;
+        }
+    </style>
+</head>
+<body>
+    <h1>Piano - Event Topic </h1>
+    <p> <strong>Note:</strong>  Click or Hover To Play a Note</p>
+
+    <div class="piano">
+     
+        <!-- data-note is an attribute which stores data of a Tag -->
+        <div class="key" data-note="C">Cat</div>
+
+        <div class="key" data-note="D">D</div>
+        <div class="key" data-note="E">E</div>
+        <div class="key" data-note="F">F</div>
+        <div class="key" data-note="G">G</div>
+        <div class="key" data-note="A">A</div>
+        <div class="key" data-note="B">B</div>
+
+    </div>
+
+    <audio id="audio-C" src="./Piano_a6-102820.mp3"></audio>
+    <audio id="audio-D" src="./Piano_b6-82013.mp3"></audio>
+    <audio id="audio-E" src="./Piano_c6-82013.mp3"></audio>
+    <audio id="audio-F" src="./Piano_d6-82020.mp3"></audio>
+    <audio id="audio-G" src="./Piano_e6-82016.mp3"></audio>
+    <audio id="audio-A" src="./Piano_f6-102819.mp3"></audio>
+    <audio id="audio-B" src="./Piano_g6-82013.mp3"></audio>
+
+
+    <script>
+          const keys = document.querySelectorAll('.key')
+
+          //keys is and array - in which we 7 div containers
+         
+          keys.forEach( function(key){
+
+             const note = key.getAttribute("data-note")
+
+             const audio = document.getElementById("audio-"+note)
+
+             
+            //Events
+            key.addEventListener('click' , function(){
+                audio.currentTime = 0
+                audio.play()
+            })
+
+
+
+            //Mouse 
+            key.addEventListener('mouseover', function(){
+                key.style.backgroundColor = "lightblue"
+            })
+
+              key.addEventListener('mouseout', function(){
+                key.style.backgroundColor = "white"
+            })
+          })
+
+         
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .movie{
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 500px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow:  0 0 15px black;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+      
+    <h1>Movie Details</h1>
+    <input type="text" id="movieInput" placeholder="Enter Your Name">
+    
+    <button onclick="handleSerach()">Search Movie</button>
+    <div class="movie" id="movieC">
+         <mark>Details:</mark>
+    </div>
+    <script>
+        //Task - To Get The Movie Details- MovieName
+         async  function getMovie(movieName){
+               let url = ` http://www.omdbapi.com/?t=${movieName}&apikey=a6606658`
+               try{
+                 //Logic
+                    let response  =    await   fetch(url)
+                    let data      =    await    response.json()
+               
+                    //Condition
+                    if(data.Response  == "True"){
+                
+                        const movieContainer = document.getElementById("movieC") 
+                        movieContainer.innerHTML = `   
+                        <h2>${data.Title}</h2>
+                        <p>${data.Year}</p>
+                        <p>${data.Plot}</p>
+                        <img src="${data.Poster}">
+                        `
+                    }else{
+                        alert("Movie Not Found")
+                    }
+               }catch(error){
+                 console.log("Error Fetching Movie ", error)
+               }               
+           }
+           
+           function handleSerach(){
+            const movieName = document.getElementById("movieInput").value;
+            if(movieName){
+                 getMovie(movieName)
+            }else{
+                alert("Please write Movie Name")
+            }
+           }
+           function add(){
+            console.log(2+2);
+           }
+           add()
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Random Dog Image</h1>
+
+    <button onclick="fetchDog()">Get Dog Image</button>
+
+    <br>
+
+    <img id="dogImage"  src=""   height="250" width="250">
+
+    <script>
+           //  fetch("API ADDRESS")
+
+           function fetchDog(){
+             
+            //Step  1: Fetch The Data from API
+
+            fetch('https://dog.ceo/api/breeds/image/random')
+
+            //Step 2: Use .then()-Successfull-Resolve  and .catch()-failed/Reject
+
+            //Step 3 : Convert Into json() - It will make the data human readable
+            .then(response=> response.json())
+
+            .then(data=>{
+                document.getElementById("dogImage").src = data.message
+            })
+
+            .catch(error=> console.log("Error " , error))
+
+
+
+           }
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'Courier New', Courier, monospace;
+            margin: 50px;
+            height: 100vh;
+            text-align: center;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            flex-wrap: wrap;
+        }
+        h1{
+            color:black;
+            font-weight: bold;
+            font-size: 40px;
+        }
+        .choices{
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .choices button{
+            padding: 8px 4px;
+            margin: 10px;
+            font-size: 24px;
+            text-align: center;
+            border: 1px solid;
+            border-radius: 10px;
+            background-color:lightblue;
+            transition: background-color 0.3s;
+            cursor: pointer;
+         }
+         .choices button:active{
+            background-color:lightskyblue;
+
+         }
+         #result{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 25px;
+            font-weight:bold;
+            color:lightgray;
+         }
+         .scorebord{
+            font-family:'Times New Roman', Times, serif;
+            border: 2px solid lightblue;
+            border-radius: 15px;
+            padding: 20px;
+            font-size: 24px;
+            width: 300px;
+            margin: 0 auto;
+            box-shadow: 0 0 8px ;
+            display: block;
+        }
+        .reset{
+            padding: 8px 4px;
+            margin: 10px;
+            font-size: 24px;
+            text-align: center;
+            border: 1px solid;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rock Paper Scissor Game</h1>
+
+    <div class="choices">
+
+         <button class="rock" onclick="PlayGame('rock')">rock🗿</button>
+
+         <button class="paper" onclick="PlayGame('paper')" >paper🗞️</button>
+
+         <button class="scissor" onclick="PlayGame('scissor')">scissor✂️</button>
+
+    </div>            
+
+        <p id="result"> Choose an Option To Start The Game</p>
+
+        <div class="scorebord">
+
+            <p><strong>SCOREBORD</strong></p>
+            <p>Wins   : <span id="Wins">   0</span> </p>
+            <p>Losses : <span id="Losse">0</span> </p>
+            <p>Drew   : <span id="Drew">   0</span> </p>
+
+        </div>
+
+        <button class="reset" onclick="ResetGame()">Restart</button>
+
+        <script>
+            let Wins = 0
+            let Losse = 0
+            let Drew= 0
+            
+            function PlayGame(userchoices){
+                //Rock -Paper -Scissor
+
+                const choices = ['rock' , 'paper' , 'scissor']
+
+                const computerchoices = choices[Math.floor(Math.random()*3)]
+                //console.log(computerchoice) - Tested
+
+                let resultmessage = ""
+
+                // Logic of game
+                
+                if(userchoices === computerchoices){
+                    resultmessage = 'You Pick The Same Option . It Is a Drew 😂' + userchoices
+                    Drew++
+                }
+                else if(
+                    (userchoices === 'rock' && computerchoices === 'scissor') ||
+                    (userchoices === 'paper' && computerchoices === 'rock') ||
+                    (userchoices === 'scissor' && computerchoices === 'paper')
+                ){
+                    resultmessage = 'You wonnnn🎉' + userchoices + 'beats 👎' + computerchoices
+                    Wins++
+                }else{
+                    resultmessage = 'You Losse🥲' + computerchoices + 'beats👎' + userchoices
+                    Losse++ 
+                }
+
+                document.getElementById('result').innerHTML = resultmessage
+                document.getElementById('Wins').innerHTML = Wins
+                document.getElementById('Losse').innerHTML = Losse
+                document.getElementById('Drew').innerHTML = Drew
+                 
+            }
+
+            function ResetGame(){
+                Wins = 0
+                Losse = 0
+                Drew = 0
+
+                document.getElementById('result').innerHTML = "Game restart"
+                document.getElementById('Wins').innerHTML = Wins
+                document.getElementById('Losse').innerHTML = Losse
+                document.getElementById('Drew').innerHTML = Drew
+            }
+        </script>
+</body>
+</html>
